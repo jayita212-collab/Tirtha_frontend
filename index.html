@@ -10,514 +10,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-/* RESET */
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-/* BODY */
-body {
-  font-family:'Poppins',sans-serif;
-  background: radial-gradient(circle at 20% 20%, #0f2027, #050505);
-  color:#fff;
-  overflow-x:hidden;
-}
-
-/* 🔥 glowing background */
-body::before, body::after {
-  content:"";
-  position:absolute;
-  width:500px;
-  height:500px;
-  background:#00f7ff33;
-  filter:blur(150px);
-  z-index:-1;
-}
-body::before { top:-100px; left:-100px; }
-body::after { bottom:-100px; right:-100px; }
-
-/* HEADER */
-header {
-  text-align:center;
-  padding:60px 20px;
-}
-
-/* 🔥 neon animated title */
-h1 {
-  font-family:'Orbitron';
-  font-size:45px;
-  background:linear-gradient(90deg,#00f7ff,#00ffa6,#00f7ff);
-  background-size:200%;
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  animation: glowMove 3s linear infinite;
-}
-
-@keyframes glowMove {
-  0% {background-position:0%}
-  100% {background-position:200%}
-}
-
-.subtitle {
-  color:#aaa;
-}
-
-/* 🧊 GLASS CARD */
-.main-card {
-  width:90%;
-  max-width:800px;
-  margin:40px auto;
-  padding:30px;
-  border-radius:25px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(20px);
-  box-shadow:0 0 40px #00f7ff44;
-  transform-style:preserve-3d;
-  transition:0.3s;
-}
-
-.main-card:hover {
-  box-shadow:0 0 60px #00ffa6;
-}
-
-/* TEXTAREA */
-textarea {
-  width:100%;
-  height:150px;
-  padding:15px;
-  border-radius:12px;
-  border:none;
-  background:#000;
-  color:#00f7ff;
-  box-shadow:inset 0 0 15px #00f7ff55;
-}
-
-/* BUTTON */
-button {
-  margin-top:20px;
-  padding:12px 30px;
-  border-radius:12px;
-  border:none;
-  font-family:'Orbitron';
-  background:linear-gradient(90deg,#00f7ff,#00ffa6);
-  cursor:pointer;
-  box-shadow:0 0 20px #00f7ff;
-  transition:0.3s;
-}
-
-button:hover {
-  transform:scale(1.1);
-  box-shadow:0 0 40px #00ffa6;
-}
-
-/* 🤍 iOS LIQUID GLASS AI OUTPUT */
-.output {
-  position: relative;
-  margin-top: 20px;
-  padding: 20px;
-  border-radius: 20px;
-
-  /* ✨ glass base */
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-
-  /* 💎 subtle border */
-  border: 1px solid rgba(255, 255, 255, 0.3);
-
-  /* 🌫 soft shadow */
-  box-shadow:
-    0 8px 30px rgba(0,0,0,0.15),
-    inset 0 1px 1px rgba(255,255,255,0.4);
-
-  min-height: 100px;
-  max-height: 260px;
-  overflow-y: auto;
-
-  color: #111;
-  font-size: 15px;
-  line-height: 1.6;
-
-  transition: all 0.4s ease;
-}
-
-/* ✨ glass highlight layer */
-.output::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-
-  background: linear-gradient(
-    120deg,
-    rgba(255,255,255,0.6),
-    rgba(255,255,255,0.1),
-    rgba(255,255,255,0.4)
-  );
-
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* 💧 subtle shine movement */
-.output::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -120%;
-  width: 200%;
-  height: 100%;
-  border-radius: 20px;
-
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.5),
-    transparent
-  );
-
-  animation: glassShine 6s infinite;
-}
-
-@keyframes glassShine {
-  0% { left: -120%; }
-  100% { left: 120%; }
-}
-
-/* 📜 smooth scrollbar */
-.output::-webkit-scrollbar {
-  width: 6px;
-}
-
-.output::-webkit-scrollbar-thumb {
-  background: rgba(0,0,0,0.2);
-  border-radius: 10px;
-}
-
-/* 🤍 COPY BUTTON (iOS style) */
-.copy-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 6px 12px;
-
-  font-size: 12px;
-  border-radius: 10px;
-  border: none;
-
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(10px);
-
-  color: #111;
-  cursor: pointer;
-
-  transition: 0.3s;
-}
-
-.copy-btn:hover {
-  background: rgba(255,255,255,0.7);
-}
-
-/* ✨ glowing animated border */
-.output::before {
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:20px;
-  background: linear-gradient(120deg,#00f7ff,#00ffa6,#00f7ff);
-  background-size:200%;
-  z-index:-1;
-  animation: borderGlow 4s linear infinite;
-  filter: blur(10px);
-}
-
-@keyframes borderGlow {
-  0% {background-position:0%}
-  100% {background-position:200%}
-}
-
-/* 🧠 smooth fade */
-@keyframes fadeIn {
-  from {opacity:0; transform:translateY(10px);}
-  to {opacity:1; transform:translateY(0);}
-}
-
-/* 📋 COPY BUTTON */
-.copy-btn {
-  position:absolute;
-  top:10px;
-  right:10px;
-  padding:5px 10px;
-  font-size:12px;
-  border:none;
-  border-radius:8px;
-  background:rgba(0,255,255,0.2);
-  color:#00f7ff;
-  cursor:pointer;
-  transition:0.3s;
-}
-
-.copy-btn:hover {
-  background:#00f7ff;
-  color:#000;
-}
-
-/* 🧠 scrollbar styling */
-.output::-webkit-scrollbar {
-  width:6px;
-}
-
-.output::-webkit-scrollbar-thumb {
-  background:#00f7ff;
-  border-radius:10px;
-}
-
-/* ✨ typing cursor */
-.typing::after {
-  content:"|";
-  animation:blink 1s infinite;
-}
-
-@keyframes blink {
-  50% {opacity:0;}
-}
-
-/* FOOTER */
-footer {
-  text-align:center;
-  padding:30px;
-  color:#666;
-  font-size:12px;
-}
-/* 💎 LIQUID GLASS CARD */
-.main-card {
-  position: relative;
-  overflow: hidden;
-  background: rgba(255,255,255,0.06);
-  backdrop-filter: blur(25px) saturate(180%);
-  border: 1px solid rgba(255,255,255,0.15);
-  box-shadow:
-    0 10px 40px rgba(0,255,255,0.2),
-    inset 0 0 20px rgba(255,255,255,0.1);
-  animation: floatCard 6s ease-in-out infinite;
-}
-
-/* 🌊 floating motion */
-@keyframes floatCard {
-  0%,100% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-}
-
-/* ✨ glass shine sweep */
-.main-card::before {
-  content:"";
-  position:absolute;
-  width:150%;
-  height:100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255,255,255,0.2),
-    transparent
-  );
-  top:0;
-  left:-100%;
-  transform: skewX(-20deg);
-  animation: shineMove 5s infinite;
-}
-
-@keyframes shineMove {
-  0% { left:-100%; }
-  100% { left:150%; }
-}
-
-/* 🖱 CUSTOM CURSOR */
-.cursor {
-  position: fixed;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: rgba(0,255,255,0.6);
-  pointer-events: none;
-  mix-blend-mode: screen;
-  box-shadow: 0 0 20px #00f7ff, 0 0 40px #00ffa6;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-}
-
-/* 🌊 ripple effect */
-.ripple {
-  position: fixed;
-  border-radius: 50%;
-  background: rgba(0,255,255,0.2);
-  transform: scale(0);
-  animation: rippleAnim 0.6s linear;
-  pointer-events: none;
-}
-
-@keyframes rippleAnim {
-  to {
-    transform: scale(6);
-    opacity: 0;
-  }
-}
-/* 💧 WATER RIPPLE */
-.ripple {
-  position: fixed;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,255,0.4) 0%, rgba(0,255,255,0.1) 40%, transparent 70%);
-  transform: scale(0);
-  pointer-events: none;
-  animation: waterRipple 0.8s ease-out;
-  z-index: 9999;
-}
-
-@keyframes waterRipple {
-  0% {
-    transform: scale(0);
-    opacity: 0.8;
-  }
-  70% {
-    transform: scale(4);
-    opacity: 0.3;
-  }
-  100% {
-    transform: scale(6);
-    opacity: 0;
-  }
-}
-/* 🌐 SECTION LAYOUT */
-.glass-section {
-  width:90%;
-  max-width:1000px;
-  margin:60px auto;
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-/* 🧊 GLASS CARDS */
-.glass-card {
-  padding:25px;
-  border-radius:20px;
-
-  background: rgba(255,255,255,0.2);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-
-  border:1px solid rgba(255,255,255,0.4);
-
-  box-shadow:
-    0 8px 25px rgba(0,0,0,0.1),
-    inset 0 1px 0 rgba(255,255,255,0.7);
-
-  transition:0.3s;
-}
-
-/* ✨ hover effect */
-.glass-card:hover {
-  transform: translateY(-8px) scale(1.02);
-}
-
-/* HEADINGS */
-.glass-card h2 {
-  margin-bottom:10px;
-  font-size:18px;
-}
-
-/* TEXT */
-.glass-card p {
-  font-size:14px;
-  line-height:1.6;
-}
-
-/* LIST */
-.glass-card ul {
-  padding-left:15px;
-}
-
-.glass-card li {
-  margin-bottom:8px;
-}
-.glass-card ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.glass-card li::before {
-  content: "• ";
-  color: #555;
-}
-.glass-section {
-  justify-content: center;
-}
- 
-/* hidden initially */
-.glass-card {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-/* when visible */
-.glass-card.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-.glass-section {
-  width: 90%;
-  max-width: 1000px;
-  margin: 60px auto;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-}
-
-/* 🔥 equal height fix */
-.glass-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 180px;
-}
-
-/* tablet */
-@media (max-width: 900px) {
-  .glass-section {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* mobile */
-@media (max-width: 600px) {
-  .glass-section {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-
-
-
-  
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
 * {margin:0; padding:0; box-sizing:border-box;}
 
 body {
@@ -693,7 +185,11 @@ footer {
   <textarea id="inputText" placeholder="Paste your study notes here..."></textarea>
   <button onclick="summarizeText()">Generate Summary</button>
  <button class="copy-btn" onclick="copyText()">Copy</button>
-  <div class="output" id="outputBox">
+ <button onclick="startVoice()">🎤 Speak</button>
+ <button onclick="startAssistant()">🎤 Start Assistant</button>
+<button onclick="stopAssistant()">⛔ Stop</button> 
+<button onclick="resetChat()">🔄 Reset Chat</button> 
+<div class="output" id="outputBox">
 
   Your AI summary will appear here...
 </div>
@@ -765,6 +261,50 @@ footer {
 </section>
 
 <footer>© 2026 Tirtha AI</footer>
+
+<script>
+// 🎤 VOICE INPUT
+function startVoice() {
+  const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+  recognition.lang = "en-US";
+  recognition.interimResults = false;
+
+  recognition.onresult = function(event) {
+    const text = event.results[0][0].transcript;
+    document.getElementById("inputText").value = text;
+
+    summarizeText();
+  };
+
+  recognition.onerror = function() {
+    alert("🎤 Microphone permission required");
+  };
+
+  recognition.start();
+}
+
+// 🔄 RESET CHAT
+async function resetChat() {
+  await fetch("https://tirtha-backend.onrender.com/reset", {
+    method: "POST"
+  });
+}
+
+// 🔊 SINGLE SPEAK FUNCTION
+function speak(text, callback) {
+  const speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  speech.onend = () => {
+    if (callback) callback();
+  };
+
+  window.speechSynthesis.cancel();
+  window.speechSynthesis.speak(speech);
+}
 
 <script>
 async function summarizeText() {
